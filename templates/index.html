@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js/mainwindow.js') }}"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Event model</title>
+
+<style>
+.rcorners1 {
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 50px; 
+    height: 150px; 
+    text-align: center;
+}
+
+.rcorners21 {
+    border-radius: 25px;
+    background: #73AD21;
+    height: 150px; 
+    text-align: center;
+}
+
+.rcorners2 {
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px; 
+}
+</style>
+
+ </head>
+ <body>
+	<div class="container-fluid">
+		<div class="row">
+		  <div class="col-sm-2 rcorners1">
+			<button type="button" class="btn btn-outline-secondary btn-lg btn-block">Вчора</button>
+		  </div>
+		  <div class="col-sm-8 rcorners1">
+			<div class="row">
+			  <div class="col-sm-4">
+				<button type="button" class="btn btn-outline-primary btn-lg ">Всі на сьогодні</button>
+			  </div>	
+			  <div class="col-sm-4">
+				<button type="button" class="btn btn-outline-primary btn-lg">Виконані</button>
+			  </div>	
+			  <div class="col-sm-4">
+				<button type="button" class="btn btn-outline-primary btn-lg">До виконання</button>
+			  </div>	
+			</div>
+		  </div>
+		  <div class="col-sm-2 rcorners1">
+			<button type="button" class="btn btn-outline-secondary btn-lg btn-block">Завтра</button>
+		  </div>
+		</div> 
+		{% for row in events %}
+		<div class="row">
+		  <div class="col-sm-2"></div>
+		  <div class="col-sm-8 rcorners2">
+		  	<div> Початок: {{row.0}}</div>
+		  	<div> Кінець: {{row.1}} </div>
+		  	<div> Задача: {{row.2}} </div>
+		  	<div> Клієнт: {{row.3}} </div>
+		  	<div> Адреса: {{row.4}} </div>
+		  	<div> Телефон: {{row.5}} </div>
+		  	<div> Тип задачі: {{row.6}}</div>
+		  </div>
+		  <div class="col-sm-2"></div>
+		</div> 
+		{% endfor %}
+
+
+	</div> 
+  </body>
+</html>
